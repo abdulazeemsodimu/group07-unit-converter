@@ -20,6 +20,7 @@ class UnitConverterApp:
         self.update_units()
         self.load_history()
 
+
     def create_widgets(self):
         ttk.Label(self.root, text="Category").pack()
         categories = ["Length", "Mass", "Temperature"]
@@ -52,3 +53,39 @@ class UnitConverterApp:
         ttk.Button(self.root, text="Clear History", command=self.clear_history).pack(
             pady=5
 )
+
+    def update_units(self):
+        cat = self.category.get()
+        if cat == "Length":
+            units = list(LengthConverter.units.keys())
+        elif cat == "Mass":
+            units = list(MassConverter.units.keys())
+        else:
+            units = ["C", "F", "K"]
+
+        self.from_menu["values"] = units
+        self.to_menu["values"] = units
+        if units:
+            self.from_unit.set(units[0])
+            self.to_unit.set(units[1] if len(units) > 1 else units[0])
+
+    def convert(self):
+        try:
+            value = float(self.value.get())
+        except ValueError:
+            messagebox.showerror("Error", "Please enter a number")
+            return
+
+        cat = self.category.get()
+        if cat == "Length":
+            converter = LengthConverter()
+        elif cat == "Mass":
+            converter = MassConverter()
+        else:
+            converter = TemperatureConverter()
+
+        result = converter.convert(value, self.from_unit.get(), self.to_unit.get())
+        self.result.set(str(result))
+
+        add_record(value, self.from_unit.get(), self.to_unit.get(), result, cat)
+        self.load_history()
