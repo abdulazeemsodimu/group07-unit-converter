@@ -7,7 +7,6 @@ class MassConverter:
         in_grams = value * self.units[from_unit]
         return in_grams / self.units[to_unit]
 
-
 class TemperatureConverter:
     def convert(self, value, from_unit, to_unit):
         if from_unit == "C":
@@ -27,3 +26,4 @@ class TemperatureConverter:
             return celsius + 273.15
         else:
             raise ValueError("Unit not supported")
+
