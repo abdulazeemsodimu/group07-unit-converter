@@ -1,3 +1,19 @@
+class LengthConverter:
+    """Handles conversion between length units. Base unit: meters"""
+
+    units = {
+        "m": 1,        # meter
+        "km": 1000,    # kilometer
+        "cm": 0.01,    # centimeter
+        "mm": 0.001,   # millimeter
+    }
+
+    def convert(self, value, from_unit, to_unit):
+        if from_unit not in self.units or to_unit not in self.units:
+            raise ValueError("Unit not supported")
+        in_meters = value * self.units[from_unit]
+        return in_meters / self.units[to_unit]
+
 class MassConverter:
     units = {"g": 1, "kg": 1000, "mg": 0.001}
 
