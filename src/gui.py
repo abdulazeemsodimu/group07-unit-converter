@@ -89,3 +89,21 @@ class UnitConverterApp:
 
         add_record(value, self.from_unit.get(), self.to_unit.get(), result, cat)
         self.load_history()
+
+        def load_history(self):
+        self.history_listbox.delete(0, tk.END)
+        for record in load_history():
+            line = f"{record['value']} {record['from']} -> {record['result']} {record['to']} ({record['category']})"
+            self.history_listbox.insert(tk.END, line)
+
+    def clear_history(self):
+        clear_history()
+        self.history_listbox.delete(0, tk.END)
+
+def run():
+    root = tk.Tk()
+    app = UnitConverterApp(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    run()
