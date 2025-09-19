@@ -79,41 +79,21 @@ class MassConverter:
         return in_grams / self.units[to_unit]
 
 class TemperatureConverter:
-     """
-    Handles conversion between temperature units.
+    """Handles conversion between Celsius, Fahrenheit, Kelvin"""
 
-    Supported units:
-        - "C" : Celsius (base reference unit)
-        - "F" : Fahrenheit
-        - "K" : Kelvin
-    """
-     
     def convert(self, value, from_unit, to_unit):
-        """
-        Convert a temperature value from one unit to another.
-
-        Args:
-            value (float): The numerical temperature value to be converted.
-            from_unit (str): The unit of the input value. Must be one of: "C", "F", "K".
-            to_unit (str): The unit to convert the value into. Must be one of: "C", "F", "K".
-
-        Returns:
-            float: Converted temperature in the target unit.
-
-        Raises:
-            ValueError: If either `from_unit` or `to_unit` is not supported.
-        """
-        # Normalize input to Celsius
+        """Convert temperature from one unit to another."""
+        # Convert input to Celsius first
         if from_unit == "C":
             celsius = value
         elif from_unit == "F":
-            celsius = (value - 32) * 5/9    # Fahrenheit to Celsius
+            celsius = (value - 32) * 5/9
         elif from_unit == "K":
-            celsius = value - 273.15        # Kelvin to Celsius
+            celsius = value - 273.15
         else:
             raise ValueError("Unit not supported")
 
-        # Convert from Celsius to target unit
+        # Convert from Celsius to target
         if to_unit == "C":
             return celsius
         elif to_unit == "F":
