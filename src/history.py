@@ -15,3 +15,19 @@ return []
 def save_history(history):
 with open(HISTORY_FILE, "w", encoding="utf-8") as f:
 json.dump(history, f, indent=2)
+
+def add_record(value, from_unit, to_unit, result, category):
+    record = {
+        "value": value,
+        "from": from_unit,
+        "to": to_unit,
+        "result": result,
+        "category": category
+    }
+    history = load_history()
+    history.insert(0, record)
+    save_history(history)
+    return record
+
+def clear_history():
+    save_history([])
