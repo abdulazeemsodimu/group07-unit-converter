@@ -63,7 +63,5 @@ def add_record(value, from_unit, to_unit, result, category):
     return record
 
 def clear_history():
-     """
-    Clear all conversion history by overwriting history.json with an empty list.
-    """
-    save_history([])
+    """Clear all history records."""
+    save_history([])  # overwrite with empty list
