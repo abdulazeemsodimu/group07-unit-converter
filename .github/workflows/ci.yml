@@ -36,7 +36,7 @@ jobs:
           pip install pipenv
 
       - name: Install dependencies
-        run: pipenv install --dev --python $(python)
+        run: pipenv install --dev --python $(python -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
 
       - name: Run tests
         run: pipenv run pytest
