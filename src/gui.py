@@ -1,7 +1,3 @@
-"""
-This file creates the Tkinter GUI for the Unit Converter.
-"""
-
 import tkinter as tk
 from tkinter import ttk, messagebox
 from converters import LengthConverter, MassConverter, TemperatureConverter
