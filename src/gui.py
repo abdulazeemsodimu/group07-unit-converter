@@ -4,8 +4,8 @@ This file creates the Tkinter GUI for the Unit Converter.
 
 import tkinter as tk
 from tkinter import ttk, messagebox
-from src.converters import LengthConverter, MassConverter, TemperatureConverter
-from src.history import add_record, load_history, clear_history
+from converters import LengthConverter, MassConverter, TemperatureConverter
+from history import add_record, load_history, clear_history
 
 class UnitConverterApp:
     def __init__(self, root):
