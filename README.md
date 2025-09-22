@@ -119,11 +119,16 @@ group07-unit-converter/
 │ └── test_history.py
 ├── media/
 │ └── Animation.gif
+├── report/
+│ └── GROUP_7_Final_Report.pdf
 ├── Pipfile
 ├── Pipfile.lock
 ├── README.md
 └── .gitignore
 ```
+
+## 📄 Project Report
+Click [here](report/GROUP_7_Final_Report.pdf) for the project report
 
 ## 🎥 Demo Video
 Click [here](https://drive.google.com/file/d/1BpxtfVRoPZvzqM82a3CIgORrWzJjYE1N/view) to watch the demo
